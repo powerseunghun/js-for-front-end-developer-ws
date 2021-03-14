@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function checkDesc(array) {
+            var flag = true;
+            checkArray = array.slice();
+            checkArray.sort(function(a, b) {
+                return b - a;
+            });
+            for (var i = 0; i < array.length; i++) {
+                if (array[i] != checkArray[i]) {
+                    flag = false;
+                    break;
+                }
+            }
+            return flag;
+        }
+        function backTracking(n, k, d) {
+            if (d == k) {
+                for (var i = 0; i < array.length; i++) {
+                    console.log(array[i]);
+                }
+                console.log("\n");
+                if (checkDesc(array)) {
+                    
+                    console.log();
+                    answer += 1;
+                }
+                return;
+            }
+            for (var i = 0; i < k; i++) {
+                if (!visitCheck[i]) {
+                    visitCheck[i] = true;
+                    array[d] = i + 1;
+                    backTracking(n, k, d + 1);
+                    visitCheck[i] = false;
+                }
+            }
+        }
+        var answer = 0;
+        var array = [], visitCheck = [];
+
+        function solution(n, k, d) {
+            backTracking(n, k, 0);
+
+            return answer;
+        }
+
+        console.log(answer);
+        console.log("H");
+        solution(9, 3, 3);
+        console.log("a");
+        // var count = 0;
+        // var array = [5, 4, 10, 21, 25];
+        // checkDesc(array);
+    </script>
+</body>
+</html>

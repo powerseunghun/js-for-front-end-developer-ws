@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var result = [];
+        var index = 0;
+        function validation1(a) {
+            for (var i = 0; i < a.length; i++) {
+                if ((a[i].name).includes("카페24")) {
+                    if (validation2(a[i].url)) {
+                        result[index++] = {
+                            "name" : a[i].name,
+                            "url" : a[i].url
+                        }
+                    }
+                }
+            }
+            return result;
+        }
+        function validation2(b) {
+            var flag = false;
+            console.log("va2");
+            if (b.includes("cafe24.com")) {
+                flag = true;
+            }
+            return flag;
+        }
+
+        var sampleData = [
+            {name: 'GitHub', url: 'https://github.com'},
+            {name: '카페24', url: 'https://www.cafe24.com'},
+            {name: '카페24 쇼핑몰센터', url: 'https://ec.cafe24.com'},
+            {name: '카페24 개발자센터', url: 'https://developers.cafe24.com'},
+            {name: '카페24호스팅센터', url: 'https://hosting.cafe24.com'},
+            {name: '카페24테스트', url: 'https://test.cafe24'},
+            {name: 'TEST', url: 'https://github'}
+        ];
+        var result = validation1(sampleData);
+        for (var i = 0; i < result.length; i++) {
+            console.log(result[i]);
+        }
+        console.log(result);
+    </script>
+</body>
+</html>
