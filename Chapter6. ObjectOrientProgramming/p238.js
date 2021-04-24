@@ -17,3 +17,13 @@ Object.defineProperty(Person.prototype, "constructor", {
 	enumerable: false,
 	value: Person
 });
+
+// p239. Prototype's dynamic property
+var friend = new Person();
+
+Person.prototype.sayHi = function() {
+	alert("hi");
+};
+
+// 인스턴스와 프로토타입 사이의 느슨한 연결 때문에 가능하다.
+friend.sayHi();  // "hi"
