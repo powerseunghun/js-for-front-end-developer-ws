@@ -19,3 +19,16 @@ Object.defineProperty(person, "name", {
 alert(person.name);    // "Nicholas"
 delete person.name;
 alert(person.name);    // "Nicholas"
+
+// p.217
+// var person = {};
+Object.defineProperty(person, "name", {
+	configurable: false,
+	value: "Nicholas"
+});
+
+// Error Occur
+Object.defineProperty(person, "name", {
+	configurable: true,
+	value: "Nicholas"
+});
