@@ -28,5 +28,13 @@ function compare(value1, value2) {
 		return 0;
 	}
 }
-
 var result = compare(5, 10);
+
+// 함수 생성
+var compareNames = createComparisonFunction("name");
+
+// 함수 호출
+var result = compareNames({ name: "Nicholas" }, { name: "Greg" });
+
+// 함수 파괴 - 메모리 회수 가능
+compareNames = null;
